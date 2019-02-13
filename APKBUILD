@@ -1,7 +1,7 @@
 # Contributor: Peter Szalatnay <theotherland@gmail.com>
 # Maintainer: Peter Szalatnay <theotherland@gmail.com>
 pkgname=percona-xtrabackup
-pkgver=2.4.12
+pkgver=2.4.13
 pkgrel=0
 pkgdesc='Percona XtraBackup is a MySQL non-blocking backup solution for InnoDB and XtraDB data'
 arch=all
