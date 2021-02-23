@@ -1,0 +1,27 @@
+--- a/libmysql/dns_srv.cc
++++ b/libmysql/dns_srv.cc
+@@ -40,14 +40,13 @@
+ // POSIX version
+
+ static bool get_dns_srv(Dns_srv_data &data, const char *dnsname, int &error) {
+-  struct __res_state state {};
+-  res_ninit(&state);
++  res_init();
+   unsigned char query_buffer[NS_PACKETSZ];
+   bool ret = true;
+
+   data.clear();
+
+-  int res = res_nsearch(&state, dnsname, ns_c_in, ns_t_srv, query_buffer,
++  int res = res_search(dnsname, ns_c_in, ns_t_srv, query_buffer,
+                         sizeof(query_buffer));
+
+   if (res >= 0) {
+@@ -84,7 +83,6 @@
+     error = h_errno;
+   }
+
+-  res_nclose(&state);
+   return ret;
+ }
+
